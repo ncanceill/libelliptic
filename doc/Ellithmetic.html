@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Ellithmetic - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>elliptic.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-divide">#divide</a>
+    
+    <li><a href="#method-i-inverse">#inverse</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ElliPoint.html">ElliPoint</a>
+  
+    <li><a href="./Ellithmetic.html">Ellithmetic</a>
+  
+    <li><a href="./Point.html">Point</a>
+  
+    <li><a href="./ProjPoint.html">ProjPoint</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Ellithmetic</h1>
+
+  <div id="description" class="description">
+    
+<p>This module implements specific arithmetics methods.</p>
+
+<h2 id="label-Division+ring">Division ring</h2>
+
+<p>Every operation is performed in <em>Z/pZ</em>, which is a division ring
+when <em>p</em> is prime. It contains integers from 0 to <em>p</em>-1.</p>
+
+<h2 id="label-base+parameter">base parameter</h2>
+
+<p>Consequently, each function requires a base argument as <em>p</em>.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-divide" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">divide</span><span
+            class="method-args">(n, q, base)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Computes the division of a number by another in <em>Z/pZ</em></p>
+
+<h4 id="method-i-divide-label-Attributes">Attributes</h4>
+<ul><li>
+<p><code>n</code> - The number to divide. It will be reduced <em>modulo
+p</em>.</p>
+</li><li>
+<p><code>q</code> - The number to divide by. It will be reduced <em>modulo
+p</em>. WARNING: passing 0 will raise a <code>ZeroDivisionError</code>!</p>
+</li><li>
+<p><code>base</code> - The base for <em>Z/pZ</em>. WARNING: if <em>p</em> is
+not prime, results will be incoherent!</p>
+</li></ul>
+
+<h4 id="method-i-divide-label-Examples">Examples</h4>
+
+<p>Basic usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">divide</span> <span class="ruby-value">4</span>, <span class="ruby-value">2</span>, <span class="ruby-value">11</span>
+    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+<span class="ruby-identifier">divide</span> <span class="ruby-value">3</span>, <span class="ruby-value">2</span>, <span class="ruby-value">11</span>
+    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span>
+</pre>
+
+<p>You can compute any number, it will be reduced in <em>Z/pZ</em>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">divide</span> <span class="ruby-value">-1</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>
+    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+<span class="ruby-identifier">divide</span> <span class="ruby-value">-666</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>
+    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="divide-source">
+            <pre><span class="ruby-comment"># File elliptic.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">divide</span> <span class="ruby-identifier">n</span>, <span class="ruby-identifier">q</span>, <span class="ruby-identifier">base</span>
+        <span class="ruby-keyword">return</span> (<span class="ruby-identifier">n</span> * (<span class="ruby-identifier">inverse</span> <span class="ruby-identifier">q</span>, <span class="ruby-identifier">base</span>)) <span class="ruby-operator">%</span> <span class="ruby-identifier">base</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- divide-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- divide-method -->
+
+    
+      <div id="method-i-inverse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inverse</span><span
+            class="method-args">(n, base)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Computes the inverse of any number in <em>Z/pZ</em></p>
+
+<h4 id="method-i-inverse-label-Attributes">Attributes</h4>
+<ul><li>
+<p><code>n</code> - The number to compute. It will be reduced <em>modulo
+p</em>. WARNING: passing 0 <em>modulo p</em> will raise a
+<code>ZeroDivisionError</code>!</p>
+</li><li>
+<p><code>base</code> - The base for <em>Z/pZ</em>. WARNING: if <em>p</em> is
+not prime, results will be incoherent!</p>
+</li></ul>
+
+<h4 id="method-i-inverse-label-Examples">Examples</h4>
+
+<p>Basic usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">inverse</span> <span class="ruby-value">1</span>, <span class="ruby-value">11</span>
+    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+<span class="ruby-identifier">inverse</span> <span class="ruby-value">3</span>, <span class="ruby-value">5</span>
+    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+<span class="ruby-identifier">inverse</span> <span class="ruby-value">4</span>, <span class="ruby-value">5</span>
+    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>
+</pre>
+
+<p>You can compute any number, it will be reduced in <em>Z/pZ</em>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">inverse</span> <span class="ruby-value">-666</span>, <span class="ruby-value">5</span>
+    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="inverse-source">
+            <pre><span class="ruby-comment"># File elliptic.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inverse</span> <span class="ruby-identifier">n</span>, <span class="ruby-identifier">base</span>
+        <span class="ruby-identifier">n_</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">base</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ZeroDivisionError</span>,
+              <span class="ruby-string">&quot;divided by 0 modulo &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span>
+                        <span class="ruby-identifier">n_</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n_</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">i</span> = <span class="ruby-value">2</span>
+        <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">until</span> (<span class="ruby-identifier">i</span> * <span class="ruby-identifier">n</span>) <span class="ruby-operator">%</span> <span class="ruby-identifier">base</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">base</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inverse-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inverse-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
