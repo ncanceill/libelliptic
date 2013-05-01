@@ -44,5 +44,5 @@ Be careful: this library can be used for encryption purposes, which may make it 
 
 
 
-Copyright (c) 2012 Nicolas Canceill
+Copyright (c) 2013 Nicolas Canceill
 
