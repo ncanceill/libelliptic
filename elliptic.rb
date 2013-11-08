@@ -1,8 +1,8 @@
 # This is a library for computing elliptic curves.
 #
 # Author::    Nicolas Canceill (mailto:nicolas.canceill@ens-cachan.org)
-# Copyright:: Copyright (c) 2012 Nicolas Canceill
-# License::   Distributes under public license
+# Copyright:: Copyright (c) 2013 Nicolas Canceill
+# License::   GNU Public License v3
 
 # This module implements specific arithmetics methods.
 #

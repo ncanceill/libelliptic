@@ -1,48 +1,58 @@
-libelliptic
-===========
+# libelliptic
 
-A Ruby library providing an API to play with elliptic curves.
+This is a [Ruby](https://www.ruby-lang.org) library implementing elliptic curves.
 
-Basic usage
--------------------------
+## Basic usage
 
-Just set the `@@base`, `@a` and `@b` parameters, and you are good to go:
+`````ruby
+> p = ElliPoint.new 1,2
+> print p.x, ", ", p.y
+1, 2
+> q = p * 3 * 6
+> q += p
+> print q.x, ", ", q.y
+1, 5
+````
+
+## Getting started
+
+Just set the `@@base` of the projective space (a large prime number), the `@a` and `@b` parameters of the curve, and you are good to go:
 
 ````ruby
 Point.base = 7
- => 7 
+ => 7
 ElliPoint.a = 2
  => 2 
 ElliPoint.b = 1
  => 1 
+````
+
+You can check the _non-singularity_ of the curve like this:
+
+````ruby
 ( 4 * ElliPoint.a**3 + 27 * ElliPoint.b**2 ) % Point.base == 0
  => false 
 ````
 
-The fourth command is used to check the _non-singularity_ of the curve.
+## Documentation
 
-Example
--------------------------
+Documentation can be generated using [`rdoc`](http://rdoc.sourceforge.net).
 
-Example usage within a Rails application (and some AJAX tricks) can be found on [my webserver](http://budapest.practicum.os3.nl/project/elliptic).
+## Contribution
 
-Documentation
--------------------------
+General rule: any contributions are welcome.
 
-Documentation can be found on [my webserver](http://budapest.practicum.os3.nl/doc/libelliptic/index.html).
+Do not hesitate to [drop an issue](https://github.com/ncanceill/libelliptic/issues/new) if you found a bug, if you either want to see a new feature or wish to suggest an improvement, or even if you simply have a question.
 
-Alternatively, you can generate it yourself using `rdoc`.
+## License information
 
-Distribution and contribution
--------------------------
+This project, including this README, distributes under [GNU General Public License v3](LICENSE.md) from the Free Software Foundation.
 
-This ReadMe, the Ruby library, and the documentation, distribute under public license. Any contributions are welcome.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-Basically, you can do whatever you want with this, and I cannot be held responsible for any of it.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-Be careful: this library can be used for encryption purposes, which may make it illegal in some countries. I encourage you to make sure your local laws allow possession and usage of this material before downloading.
-
-
+***
 
 Copyright (c) 2013 Nicolas Canceill
 
