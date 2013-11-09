@@ -4,10 +4,17 @@ This is a [Ruby](https://www.ruby-lang.org) library implementing elliptic curves
 
 ## Basic usage
 
-`````ruby
+Create a point on the curve:
+
+````ruby
 > p = ElliPoint.new 1,2
 > print p.x, ", ", p.y
 1, 2
+````
+
+Play with it:
+
+````ruby
 > q = p * 3 * 6
 > q += p
 > print q.x, ", ", q.y
