@@ -4,7 +4,7 @@ This is a [Ruby](https://www.ruby-lang.org) library implementing elliptic curves
 
 ## Basic usage
 
-`````ruby
+````ruby
 > p = ElliPoint.new 1,2
 > print p.x, ", ", p.y
 1, 2
