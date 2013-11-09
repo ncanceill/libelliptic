@@ -23,22 +23,25 @@ Play with it:
 
 ## Getting started
 
+Import the library:
+
+````ruby
+> require '/path/to/elliptic.rb'
+````
+
 Just set the `@@base` of the projective space (a large prime number), the `@a` and `@b` parameters of the curve, and you are good to go:
 
 ````ruby
 Point.base = 7
- => 7
 ElliPoint.a = 2
- => 2 
 ElliPoint.b = 1
- => 1 
 ````
 
 You can check the _non-singularity_ of the curve like this:
 
 ````ruby
 ( 4 * ElliPoint.a**3 + 27 * ElliPoint.b**2 ) % Point.base == 0
- => false 
+  => false 
 ````
 
 ## Documentation
