@@ -1,13 +1,11 @@
 # DISCLAIMER
 
-Distributed under GNU General Public License v3
+libelliptic is distributed under GNU General Public License v3.
 
 This program comes with ABSOLUTELY NO WARRANTY.
 
 This is free software, and you are welcome to
 redistribute it under certain conditions.
-
-libelliptic Copyright (C) 2013  Nicolas Canceill
 
 ## LICENSE
 
@@ -49,7 +47,7 @@ SUCH DAMAGES.
 
 ## NATIONAL REGULATIONS
 
-This program makes use of cryptographic and steganographic technologies.
+This program can be used for cryptographic purposes.
 
 In an ideal world every honest person would have the right to use
 encryption and steganography. Unfortunately, this isn't an ideal world.
@@ -61,3 +59,8 @@ nation you are in, allow you to possess and use this program.
 Please check with you local authorities, or see
 [http://www.cryptolaw.org](http://www.cryptolaw.org)
 for details.
+
+***
+
+Copyright (C) 2013  Nicolas Canceill
+
