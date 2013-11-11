@@ -109,8 +109,8 @@ class Point
 	# ==== Attributes
 	#
 	# * +x+ - The first coordinate. It will be reduced <i>modulo p</i>.
-	# * +y+ - The first coordinate. It will be reduced <i>modulo p</i>.
-	# * +z+ - The first coordinate. It will be reduced <i>modulo p</i>.
+	# * +y+ - The second coordinate. It will be reduced <i>modulo p</i>.
+	# * +z+ - The third coordinate. It will be reduced <i>modulo p</i>.
 	#
 	# ==== Examples
 	#
@@ -210,8 +210,8 @@ class ProjPoint < Point
 	# ==== Attributes
 	#
 	# * +x+ - The first coordinate. It will be reduced <i>modulo p</i>.
-	# * +y+ - The first coordinate. It will be reduced <i>modulo p</i>.
-	# * +z+ - The first coordinate. It will be reduced <i>modulo p</i>. Default value is 1.
+	# * +y+ - The second coordinate. It will be reduced <i>modulo p</i>.
+	# * +z+ - The third coordinate. It will be reduced <i>modulo p</i>. Default value is 1.
 	#
 	# ==== Examples
 	#
@@ -393,8 +393,8 @@ class ElliPoint < ProjPoint
 	# ==== Attributes
 	#
 	# * +x+ - The first coordinate. It will be reduced <i>modulo p</i>.
-	# * +y+ - The first coordinate. It will be reduced <i>modulo p</i>.
-	# * +z+ - The first coordinate. It will be reduced <i>modulo p</i>. Default value is 1.
+	# * +y+ - The second coordinate. It will be reduced <i>modulo p</i>.
+	# * +z+ - The third coordinate. It will be reduced <i>modulo p</i>. Default value is 1.
 	#
 	# ==== Examples
 	#
