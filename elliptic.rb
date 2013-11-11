@@ -150,6 +150,7 @@ class Point
 		return @X == point.X && @Y == point.Y && @Z == point.Z
 	end
 
+	# A string representing this point.
 	def to_s
 		return "Point(#{@X}, #{@Y}, #{@Z})"
 	end
@@ -358,6 +359,7 @@ class ProjPoint < Point
 		return (@X**3 + a * @X * @Z**2 + b * @Z**3 - @Y**2 * @Z) % @@base == 0
 	end
 
+	# A string representing this projective point.
 	def to_s
 		return "ProjPoint(#{self.x}, #{self.y})"
 	end
@@ -516,6 +518,7 @@ class ElliPoint < ProjPoint
 		return self + (self * (n - 1))
 	end
 
+	# A string representing this elliptic point.
 	def to_s
 		return "ElliPoint(#{self.x}, #{self.y})"
 	end
