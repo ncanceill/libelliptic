@@ -147,7 +147,7 @@ class Point
 	#	Point.new 0, 1, 5 == Point.new 0, -12, 18
 	#		=> true
 	def == point
-		return @X == point.X && @Y = point.Y && @Z == point.Z
+		return @X == point.X && @Y == point.Y && @Z == point.Z
 	end
 
 	#
