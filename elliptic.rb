@@ -150,6 +150,11 @@ class Point
 		return @X == point.X && @Y == point.Y && @Z == point.Z
 	end
 
+	# A string representing this point.
+	def to_s
+		return "Point(#{@X}, #{@Y}, #{@Z})"
+	end
+
 	#
 	# Class definitions
 	class << self
@@ -354,6 +359,11 @@ class ProjPoint < Point
 		return (@X**3 + a * @X * @Z**2 + b * @Z**3 - @Y**2 * @Z) % @@base == 0
 	end
 
+	# A string representing this projective point.
+	def to_s
+		return "ProjPoint(#{self.x}, #{self.y})"
+	end
+
 end
 
 # This class implements a projective tri-dimensional point of an elliptic curve in <i>Z/pZ</i>.
@@ -506,6 +516,11 @@ class ElliPoint < ProjPoint
 		return ElliPoint.infty if n == 0
 		return -self * -n if n < 0
 		return self + (self * (n - 1))
+	end
+
+	# A string representing this elliptic point.
+	def to_s
+		return "ElliPoint(#{self.x}, #{self.y})"
 	end
 
 	#
