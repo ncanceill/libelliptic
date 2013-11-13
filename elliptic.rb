@@ -32,6 +32,15 @@ module Ellithmetic
 	# Module functions
 	module_function
 
+	def expo x, y, base
+		x_ = x % base
+		y_ = y % base
+		return 1 if y_ == 0
+		xp = expo x_, y_/2, base
+		return xp**2 %base if y_ % 2 == 0
+		return x * xp**2 % base
+	end
+
 	# Computes the inverse of any number in <i>Z/pZ</i>
 	#
 	# ==== Attributes
