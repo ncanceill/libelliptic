@@ -33,8 +33,7 @@ Just set the `@@base` of the projective space (a large prime number), the `@a` a
 
 ````ruby
 > Point.base = 7
-> ElliPoint.a = 2
-> ElliPoint.b = 1
+> ElliPoint.curve_set = 2, 1
 ````
 
 You can check the _non-singularity_ of the curve like this:

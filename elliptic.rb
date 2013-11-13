@@ -605,6 +605,15 @@ class ElliPoint < ProjPoint
 			@@b = b
 		end
 
+                # Sets the <i>a</i> and <i>b</i> parameter currently used for the elliptic curve.
+                #
+                # WARNING: in order to obtain a valid elliptic curve,
+                # <code>4*@@a^3 + 27*b^2</code> should not be 0.
+		def curve_set a,b
+			@@a = a
+			@@b = b
+		end
+
 	end
 
 end
