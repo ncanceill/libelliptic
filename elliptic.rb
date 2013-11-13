@@ -1,8 +1,9 @@
-# This is a library for computing elliptic curves.
+# This is a library implementing elliptic curves.
 #
 # Author::	Nicolas Canceill (mailto:nicolas.canceill@ens-cachan.org)
-# Copyright:: Copyright (c) 2013 Nicolas Canceill
-# License:: GNU Public License v3
+# Copyright::	Copyright (c) 2013 Nicolas Canceill
+# License::	GNU Public License v3
+# Version::	0.1
 
 # This program is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the
