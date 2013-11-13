@@ -72,10 +72,7 @@ module Ellithmetic
 		raise ZeroDivisionError,
 			"divided by 0 modulo " + base.to_s if
 				n_ == 0
-		return 1 if n_ == 1
-		i = 2
-		i += 1 until (i * n) % base == 1
-		return i % base
+		return expo n_, base-2, base
 	end
 
 	# Computes the division of a number by another in <i>Z/pZ</i>
