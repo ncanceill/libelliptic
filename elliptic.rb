@@ -4,9 +4,16 @@
 # Copyright:: Copyright (c) 2013 Nicolas Canceill
 # License:: GNU Public License v3
 
-# This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation, either version 3 of the License, or (at your
+# option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+# or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# See the GNU General Public License for more details.
 
 # This module implements specific arithmetics methods.
 #
@@ -29,8 +36,12 @@ module Ellithmetic
 	#
 	# ==== Attributes
 	#
-	# * +n+ - The number to compute. It will be reduced <i>modulo p</i>. WARNING: passing 0 <i>modulo p</i> will raise a <code>ZeroDivisionError</code>!
-	# * +base+ - The base for <i>Z/pZ</i>. WARNING: if <i>p</i> is not prime, results will be incoherent!
+	# * +n+ - The number to compute. It will be reduced <i>modulo p</i>.
+	# WARNING: passing 0 <i>modulo p</i> will raise a
+	# <code>ZeroDivisionError</code>!
+	#
+	# * +base+ - The base for <i>Z/pZ</i>.
+	# WARNING: if <i>p</i> is not prime, results will be incoherent!
 	#
 	# ==== Examples
 	#
@@ -63,8 +74,12 @@ module Ellithmetic
 	# ==== Attributes
 	#
 	# * +n+ - The number to divide. It will be reduced <i>modulo p</i>.
-	# * +q+ - The number to divide by. It will be reduced <i>modulo p</i>. WARNING: passing 0 will raise a <code>ZeroDivisionError</code>!
-	# * +base+ - The base for <i>Z/pZ</i>. WARNING: if <i>p</i> is not prime, results will be incoherent!
+	#
+	# * +q+ - The number to divide by. It will be reduced <i>modulo p</i>.
+	# WARNING: passing 0 will raise a <code>ZeroDivisionError</code>!
+	#
+	# * +base+ - The base for <i>Z/pZ</i>.
+	# WARNING: if <i>p</i> is not prime, results will be incoherent!
 	#
 	# ==== Examples
 	#
@@ -95,7 +110,8 @@ end
 #
 # == <i>Z/pZ</i>
 #
-# Coordinates are integers <i>modulo p</i>. You should set the <code>@@base</code> variable to <i>p</i>.
+# Coordinates are integers <i>modulo p</i>. You should set the
+# <code>@@base</code> variable to <i>p</i>.
 
 class Point
 
@@ -197,16 +213,19 @@ end
 #
 # == Coordinates
 #
-# Coordinates are stored as accessible variables <code>@X</code>, <code>@Y</code>, and <code>@Z</code>.
+# Coordinates are stored as accessible variables <code>@X</code>,
+# <code>@Y</code>, and <code>@Z</code>.
 #
 # == <i>Z/pZ</i>
 #
-# Coordinates are integers <i>modulo p</i>. You should set the <code>@@base</code> variable to <i>p</i>.
+# Coordinates are integers <i>modulo p</i>. You should set the
+# <code>@@base</code> variable to <i>p</i>.
 #
 # == Projective space
 #
-# In this projective space, points whith 0 as third coordinate <code>@Z</code> are <i>infinity points</i>,
-# while the others have homogeneous coordinates <code>:x</code> and <code>:y</code>.
+# In this projective space, points whith 0 as third coordinate <code>@Z</code>
+# are <i>infinity points</i>, while the others have homogeneous coordinates
+# <code>:x</code> and <code>:y</code>.
 
 class ProjPoint < Point
 	include Ellithmetic
@@ -220,7 +239,8 @@ class ProjPoint < Point
 	#
 	# * +x+ - The first coordinate. It will be reduced <i>modulo p</i>.
 	# * +y+ - The second coordinate. It will be reduced <i>modulo p</i>.
-	# * +z+ - The third coordinate. It will be reduced <i>modulo p</i>. Default value is 1.
+	# * +z+ - The third coordinate. It will be reduced <i>modulo p</i>.
+	# Default value is 1.
 	#
 	# ==== Examples
 	#
@@ -247,7 +267,8 @@ class ProjPoint < Point
 	#
 	# Instance methods
 
-	# Tests if this projective point is equal to the passed-in projective point.
+	# Tests if this projective point is equal to the passed-in
+	# projective point.
 	#
 	# ==== Attributes
 	#
@@ -296,9 +317,11 @@ class ProjPoint < Point
 		return @Z % @@base == 0
 	end
 
-	# Gets <code>:x</code>, the first homogeneous coordinate of this projective point.
+	# Gets <code>:x</code>, the first homogeneous coordinate of
+	# this projective point.
 	#
-	# WARNING: calling x on an <i>infinity point</i> will raise a <code>TypeError</code>.
+	# WARNING: calling x on an <i>infinity point</i> will raise
+	# a <code>TypeError</code>.
 	#
 	# ==== Examples
 	#
@@ -316,9 +339,11 @@ class ProjPoint < Point
 		return divide @X, @Z, @@base
 	end
 
-	# Gets <code>:y</code>, the second homogeneous coordinate of this projective point.
+	# Gets <code>:y</code>, the second homogeneous coordinate
+	# of this projective point.
 	#
-	# WARNING: calling y on an <i>infinity point</i> will raise a <code>TypeError</code>.
+	# WARNING: calling y on an <i>infinity point</i> will raise
+	# a <code>TypeError</code>.
 	#
 	# ==== Examples
 	#
@@ -339,7 +364,8 @@ class ProjPoint < Point
 	# Tests if this projective point belongs to a specific elliptic curve.
 	#
 	# WARNING: this method only checks the Weierstraß equation, it does not
-	# check whether the elliptic curve is valid (i.e. whether <code>4*a^3+27*b^2 = 0</code>).
+	# check whether the elliptic curve is valid (i.e. whether 
+	# <code>4*a^3+27*b^2 = 0</code>).
 	#
 	# ==== Attributes
 	#
@@ -370,29 +396,35 @@ class ProjPoint < Point
 
 end
 
-# This class implements a projective tri-dimensional point of an elliptic curve in <i>Z/pZ</i>.
+# This class implements a projective tri-dimensional point
+# of an elliptic curve in <i>Z/pZ</i>.
 #
 # == Coordinates
 #
-# Coordinates are stored as accessible variables <code>@X</code>, <code>@Y</code>, and <code>@Z</code>.
+# Coordinates are stored as accessible variables <code>@X</code>,
+# <code>@Y</code>, and <code>@Z</code>.
 #
 # == <i>Z/pZ</i>
 #
-# Coordinates are integers <i>modulo p</i>. You should set the <code>@@base</code> variable to <i>p</i>.
+# Coordinates are integers <i>modulo p</i>. You should set the
+# <code>@@base</code> variable to <i>p</i>.
 #
 # == Projective space
 #
-# In this projective space, points whith 0 as third coordinate <code>@Z</code> are <i>infinity points</i>,
-# while the others have homogeneous coordinates <code>:x</code> and <code>:y</code>.
+# In this projective space, points whith 0 as third coordinate
+# <code>@Z</code> are <i>infinity points</i>, while the others
+# have homogeneous coordinates <code>:x</code> and <code>:y</code>.
 #
 # == Elliptic curve
 #
-# The elliptic curve is defined by variables <code>@@a</code> and <code>@@b</code>. In order to obtain a valid elliptic curve,
+# The elliptic curve is defined by variables <code>@@a</code> and
+# <code>@@b</code>. In order to obtain a valid elliptic curve,
 # <code>4*@@a^3 + 27*b^2</code> should not be 0.
 #
 # == Elliptic calculations
 #
-# Within this elliptic curve, you can perform operations on points, because they form an abelian group.
+# Within this elliptic curve, you can perform operations on points,
+# because they form an abelian group.
 
 class ElliPoint < ProjPoint
 
@@ -408,7 +440,8 @@ class ElliPoint < ProjPoint
 	#
 	# * +x+ - The first coordinate. It will be reduced <i>modulo p</i>.
 	# * +y+ - The second coordinate. It will be reduced <i>modulo p</i>.
-	# * +z+ - The third coordinate. It will be reduced <i>modulo p</i>. Default value is 1.
+	# * +z+ - The third coordinate. It will be reduced <i>modulo p</i>.
+	# Default value is 1.
 	#
 	# ==== Examples
 	#
@@ -502,7 +535,8 @@ class ElliPoint < ProjPoint
 	end
 
 	# Returns the result (multiplication) of the combination of this elliptic point
-	# with an integer, using the opposite operation if needed, and iterating over the <i>plus</i> law.
+	# with an integer, using the opposite operation if needed, and iterating over
+	# the <i>plus</i> law.
 	#
 	# ==== Examples
 	#
