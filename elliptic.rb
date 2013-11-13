@@ -32,6 +32,17 @@ module Ellithmetic
 	# Module functions
 	module_function
 
+	# Computes the exponentiation of any number in <i>Z/pZ</i>
+	#
+	# ==== Attributes
+	#
+	# * +x+ - The number to exponentiate. It will be reduced <i>modulo p</i>.
+	#
+	# * +y+ - The exponent. It will be reduced <i>modulo p</i>.
+	# WARNING: do not pass a negative number since it will be reduced.
+	#
+	# * +base+ - The base for <i>Z/pZ</i>.
+	# WARNING: if <i>p</i> is not prime, results will be incoherent!
 	def expo x, y, base
 		x_ = x % base
 		y_ = y % base
@@ -42,6 +53,8 @@ module Ellithmetic
 	end
 
 	# Computes the inverse of any number in <i>Z/pZ</i>
+	# (Actually exponentiates it to p-2 according to Pierre
+	# de Fermat's Little Theorem).
 	#
 	# ==== Attributes
 	#
