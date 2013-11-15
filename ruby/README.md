@@ -1,13 +1,51 @@
 # libelliptic
 
-This is a collection of libraries implementing elliptic curves.
+This is a [Ruby](https://www.ruby-lang.org) library implementing elliptic curves.
 
-Available languages:
+## Basic usage
 
-* [Go](https://github.com/ncanceill/libelliptic/tree/master/go)
-* [Ruby](https://github.com/ncanceill/libelliptic/tree/master/ruby)
+Create a point on the curve:
 
-More coming soon!
+````ruby
+> p = ElliPoint.new 1,2
+> puts p
+ElliPoint(1, 2)
+````
+
+Play with it:
+
+````ruby
+> q = p * 3 * 6
+> q += p
+> puts q
+ElliPoint(1, 5)
+````
+
+## Getting started
+
+Import the library:
+
+````ruby
+> require '/path/to/elliptic.rb'
+````
+
+Just set the `@@base` of the projective space (a large prime number), the `@a` and `@b` parameters of the curve, and you are good to go:
+
+````ruby
+> Point.base = 7
+> ElliPoint.curve_set = 2, 1
+````
+
+You can check the _non-singularity_ of the curve like this:
+
+````ruby
+> ( 4 * ElliPoint.a**3 + 27 * ElliPoint.b**2 ) % Point.base == 0
+  => false 
+````
+
+## Documentation
+
+Documentation can be generated using [`rdoc`](http://rdoc.sourceforge.net).
 
 ## Contribution
 

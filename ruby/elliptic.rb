@@ -50,7 +50,7 @@ module Ellithmetic
 		return 1 if y_ == 0
 		xp = expo x_, y_/2, base
 		return xp**2 %base if y_ % 2 == 0
-		return x * xp**2 % base
+		return x_ * xp**2 % base
 	end
 
 	# Computes the inverse of any number in <i>Z/pZ</i>

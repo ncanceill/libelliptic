@@ -1,13 +1,49 @@
 # libelliptic
 
-This is a collection of libraries implementing elliptic curves.
+This is a [Go](http://golang.org) library implementing elliptic curves.
 
-Available languages:
+## Basic usage
 
-* [Go](https://github.com/ncanceill/libelliptic/tree/master/go)
-* [Ruby](https://github.com/ncanceill/libelliptic/tree/master/ruby)
+Create a point on the curve:
 
-More coming soon!
+````go
+p, _ := elliptic.NewElliPoint(1, 2)
+fmt.Println(p) //prints "1,2,1"
+````
+
+Play with it:
+
+````go
+q := p.Times(3).Times(6)
+q = q.Plus(p)
+fmt.Println(q) //prints "1,5,1"
+````
+
+## Getting started
+
+Import the library:
+
+````go
+import "/path/to/elliptic.rb"
+````
+
+Just set the `Base` of the projective space (a large prime number), the `A` and `B` parameters of the curve, and you are good to go:
+
+````go
+elliptic.SetBase(7)
+elliptic.SetA(2)
+elliptic.SetB(1)
+````
+
+You can check the _non-singularity_ of the curve like this:
+
+````go
+elliptic.Abs(4*a*a*a+27*b*b, base) == 0 // returns false
+````
+
+## Documentation
+
+Documentation is not available yet.
 
 ## Contribution
 
