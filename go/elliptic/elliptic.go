@@ -2,8 +2,15 @@ package elliptic
 
 import "fmt"
 
+func Abs(n int,base int) int {
+	if n < 0 {
+		return n%base+base
+	}
+	return n%base
+}
+
 func Expo(x int, y int, base int) int {
-	x_, y_ := x%base, y%base
+	x_, y_ := Abs(x,base), Abs(y,base)
 	if y_ == 0 {
 		return 1
 	}
@@ -11,11 +18,11 @@ func Expo(x int, y int, base int) int {
 	if y_%2 == 0 {
 		return xp * xp % base
 	}
-	return x_ * xp * xp % base
+	return Abs(x_ * xp * xp, base)
 }
 
 func Inverse(n int, base int) (int, error) {
-	n_ := n % base
+	n_ := Abs(n,base)
 	if n_ == 0 {
 		return 0, fmt.Errorf("elliptic: divided by zero modulo %d", base)
 	}
@@ -23,16 +30,20 @@ func Inverse(n int, base int) (int, error) {
 }
 
 func Divide(n int, q int, base int) (int, error) {
-	return n * Inverse(q, base) % base
+	i,e := Inverse(q, base)
+	if e != nil {
+		return 0,e
+	}
+	return Abs(n * i, base),nil
 }
 
 var base int
 
-func base() int {
+func Base() int {
 	return base
 }
 
-func setBase(b int) {
+func SetBase(b int) {
 	base = b
 }
 
@@ -41,7 +52,7 @@ type Point struct {
 }
 
 func NewPoint(x int, y int, z int) *Point {
-	return &Point{X: x % base, Y: y % base, Z: z % base}
+	return &Point{X: Abs(x,base), Y: Abs(y,base), Z: Abs(z,base)}
 }
 
 func (p *Point) Equals(q *Point) bool {
@@ -53,11 +64,11 @@ type ProjPoint struct {
 }
 
 func NewProjPoint(c ...int) (*ProjPoint, error) {
-	if len(slice) < 2 {
+	if len(c) < 2 {
 		return nil, fmt.Errorf("elliptic: a projpoint needs X and Y")
 	}
 	var z int
-	if len(slice) < 3 {
+	if len(c) < 3 {
 		z = 1
 	} else {
 		z = c[2]
@@ -66,37 +77,41 @@ func NewProjPoint(c ...int) (*ProjPoint, error) {
 	if (p.X + p.Y + p.Z) == 0 {
 		return nil, fmt.Errorf("elliptic: point (0,0,0) is not projective")
 	}
-	return &ProjPoint{p}
+	return &ProjPoint{*p},nil
 }
 
 func (p *ProjPoint) IsInfty() bool {
 	return p.Z == 0
 }
 
-func (p *ProjPoint) Equals(q *ProjPoint) bool {
+func (p *ProjPoint) Equals(q *ProjPoint) (bool,error) {
 	if p.IsInfty() {
 		if !q.IsInfty() {
-			return false
+			return false,nil
 		}
 		if p.X == 0 {
-			return q.X == 0
+			return q.X == 0,nil
 		}
-		return Divide(q.X, p.X, base)*p.Y%base == q.Y
+		d,e := Divide(q.X, p.X, base)
+		if e != nil {
+			return false,e
+		}
+		return d*p.Y%base == q.Y,nil
 	}
 	if q.IsInfty() {
-		return false
+		return false,nil
 	}
-	return p.X == q.X && p.Y == q.Y
+	return p.X == q.X && p.Y == q.Y,nil
 }
 
-func (p *ProjPoint) X() (int, error) {
+func (p *ProjPoint) HX() (int, error) {
 	if p.IsInfty() {
 		return 0, fmt.Errorf("elliptic: infinity cannot be homogeneous")
 	}
 	return Divide(p.X, p.Z, base)
 }
 
-func (p *ProjPoint) Y() (int, error) {
+func (p *ProjPoint) HY() (int, error) {
 	if p.IsInfty() {
 		return 0, fmt.Errorf("elliptic: infinity cannot be homogeneous")
 	}
@@ -133,23 +148,30 @@ type ElliPoint struct {
 }
 
 func NewElliPoint(c ...int) (*ElliPoint, error) {
-	p, e := NewProjPoint(c)
+	p, e := NewProjPoint(c...)
 	if e != nil {
 		return nil, fmt.Errorf("elliptic: invalid projection\n%s", e)
 	}
 	if !p.BelongsTo(a, b) {
 		return nil, fmt.Errorf("elliptic: point out of curve (%d,%d)", a, b)
 	}
-	return &ElliPoint{p}
+	return &ElliPoint{*p},nil
 }
 
-const ElliInfty *ElliPoint = NewElliPoint(0, 1, 0)
+var ElliInfty *ElliPoint
+
+func init() {
+	ElliInfty = &ElliPoint{ProjPoint{Point{X: 0, Y: 1, Z: 0}}}
+}
 
 func (p *ElliPoint) Opp() *ElliPoint {
 	if p.IsInfty() {
 		return ElliInfty
 	}
-	return NewElliPoint(p.X(), -p.Y())
+	x,_ := p.HX()
+	y,_ := p.HY()
+	q,_ := NewElliPoint(x,-y%base)
+	return q
 }
 
 func (p *ElliPoint) Star(q *ElliPoint) *ElliPoint {
@@ -159,22 +181,25 @@ func (p *ElliPoint) Star(q *ElliPoint) *ElliPoint {
 	if q.IsInfty() {
 		return p.Opp()
 	}
-	x := p.X()
-	y := p.Y()
+	x,_ := p.HX()
+	y,_ := p.HY()
 	var k, l int
-	if p.Equals(q) {
-		l = Divide(3*x*x+a, 2*y, base)
+	equal,_ :=p.Equals(&q.ProjPoint)
+	if equal {
+		l,_ = Divide(3*x*x+a, 2*y, base)
 		k = l*l - 2*x
-		return NewElliPoint(k, l*(k-x)+y)
+		r,_ := NewElliPoint(k, l*(k-x)+y)
+		return r
 	}
-	x_ := q.X()
-	y_ := q.Y()
+	x_,_ := q.HX()
+	y_,_ := q.HY()
 	if x == x_ {
 		return ElliInfty
 	}
-	l = Divide(y_-y, x_-x, base)
+	l,_ = Divide(y_-y, x_-x, base)
 	k = l*l - x - x_
-	return NewElliPoint(k, l*(k-x)+y)
+	r,_ := NewElliPoint(k, l*(k-x)+y)
+	return r
 }
 
 func (p *ElliPoint) Plus(q *ElliPoint) *ElliPoint {
