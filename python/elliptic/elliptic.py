@@ -15,3 +15,12 @@
 # Copyright (C) 2013 Nicolas Canceill
 #
 
+def expo(x,y,base):
+	x_ = x % base
+	y_ = y % base
+	if y_ == 0:
+		return 1
+	if y_ % 2 == 0:
+		return expo(x_,y_//2,base)**2
+	return x_ * expo(x_,y_-1,base)
+
