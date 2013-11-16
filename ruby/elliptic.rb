@@ -411,7 +411,8 @@ class ProjPoint < Point
 
 	# A string representing this projective point.
 	def to_s
-		return "ProjPoint(#{self.x}, #{self.y})"
+		return "ProjPoint Infinity/#{@@base}" if self.isInfty?
+		return "ProjPoint (#{self.x},#{self.y})/#{@@base}"
 	end
 
 end
@@ -578,7 +579,8 @@ class ElliPoint < ProjPoint
 
 	# A string representing this elliptic point.
 	def to_s
-		return "ElliPoint(#{self.x}, #{self.y})"
+		return "ElliPoint Infinity/#{@@base}" if self.isInfty?
+		return "ElliPoint(#{self.x},#{self.y})/#{@@base}"
 	end
 
 	#
