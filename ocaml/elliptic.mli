@@ -1,5 +1,5 @@
 type elliptic = O | P of int * int
-val abs : int -> int -> int
+val abm : int -> int -> int
 val exp : int -> int -> int -> int
 val inv : int -> int -> int
 val div : int -> int -> int -> int
