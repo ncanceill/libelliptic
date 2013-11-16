@@ -1,51 +1,53 @@
 # libelliptic
 
-This is a [Go](http://golang.org) library implementing elliptic curves.
+This is a [Python](http://python.org) library implementing elliptic curves.
 
 ## Basic usage
 
 Create a point on the curve:
 
-````go
-p, _ := elliptic.NewElliPoint(1, 2)
-fmt.Println(p) //prints "1,2,1"
+````python
+>>> p = ElliPoint(1,2)
+>>> print(str(p))
+ElliPoint(1, 2)
 ````
 
 Play with it:
 
-````go
-q := p.Times(3).Times(6)
-q = q.Plus(p)
-fmt.Println(q) //prints "1,5,1"
+````python
+>>> q = p * 3 * 6
+>>> q = p + q
+>>> print(str(q))
+ElliPoint(1, 5)
 ````
 
 ## Getting started
 
-Import the library:
+Import the library (CWD must be the parent of the "elliptic" dir):
 
-````go
-import "/path/to/elliptic.rb"
+````python
+>>> from elliptic import elliptic
 ````
 
-Just set the `Base` of the projective space (a large prime number), the `A` and `B` parameters of the curve, and you are good to go:
+Package coming soon!
 
-````go
-elliptic.SetBase(7)
-elliptic.SetA(2)
-elliptic.SetB(1)
+Just set the `base` of the projective space (a large prime number), the `a` and `b` parameters of the curve, and you are good to go:
+
+````python
+>>> Point.base = 7
+>>> ElliPoint.curve_set(2, 1)
 ````
 
 You can check the _non-singularity_ of the curve like this:
 
-````go
-a = elliptic.A()
-b = elliptic.B()
-elliptic.Abs(4*a*a*a+27*b*b, elliptic.Base()) == 0 // returns false
+````python
+>>> ( 4 * ElliPoint.a**3 + 27 * ElliPoint.b**2 ) % Point.base == 0
+false 
 ````
 
 ## Documentation
 
-Documentation is not available yet.
+Documentation is not available yet
 
 ## Contribution
 

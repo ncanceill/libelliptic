@@ -5,6 +5,7 @@ This is a collection of libraries implementing elliptic curves.
 Available languages:
 
 * [Go](https://github.com/ncanceill/libelliptic/tree/master/go)
+* [Python](https://github.com/ncanceill/libelliptic/tree/master/python)
 * [Ruby](https://github.com/ncanceill/libelliptic/tree/master/ruby)
 
 More coming soon!
