@@ -16,7 +16,7 @@ Play with it:
 ````ocaml
 let q = m (m p 3) 6;; (* Multiplication *)
 let r = s p q;; (* Sum *)
-let () = print_point q;; (* Prints "Point(1,5)" *)
+let () = print_point r;; (* Prints "Point(1,5)" *)
 ````
 
 ## Getting started
