@@ -42,12 +42,12 @@ You can check the _non-singularity_ of the curve like this:
 
 ````python
 >>> ( 4 * ElliPoint.a**3 + 27 * ElliPoint.b**2 ) % Point.base == 0
-  => false 
+false 
 ````
 
 ## Documentation
 
-Coming soon!
+Documentation is not available yet
 
 ## Contribution
 
