@@ -57,6 +57,8 @@ Do not hesitate to [drop an issue](https://github.com/ncanceill/libelliptic/issu
 
 ## License information
 
+Python 3 distributes under the [Python License](http://docs.python.org/3/license.html).
+
 This project, including this README, distributes under [GNU General Public License v3](https://github.com/ncanceill/libelliptic/blob/master/LICENSE.md) from the Free Software Foundation.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
