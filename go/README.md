@@ -38,7 +38,9 @@ elliptic.SetB(1)
 You can check the _non-singularity_ of the curve like this:
 
 ````go
-elliptic.Abs(4*a*a*a+27*b*b, base) == 0 // returns false
+a = elliptic.A()
+b = elliptic.B()
+elliptic.Abs(4*a*a*a+27*b*b, elliptic.Base()) == 0 // returns false
 ````
 
 ## Documentation
