@@ -1,6 +1,6 @@
 # libelliptic
 
-This is a [Python](http://python.org) library implementing elliptic curves.
+This is a [Python](http://python.org) 3 library implementing elliptic curves.
 
 ## Basic usage
 
@@ -51,7 +51,7 @@ Documentation is not available yet
 
 ## License information
 
-Python 3 distributes under the [Python License](http://docs.python.org/3/license.html).
+Python distributes under the [Python License](http://docs.python.org/3/license.html).
 
 This project, including this README, distributes under [GNU General Public License v3](https://github.com/ncanceill/libelliptic/blob/master/LICENSE.md) from the Free Software Foundation.
 

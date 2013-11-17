@@ -1,6 +1,6 @@
 # libelliptic
 
-This is a [C](http://www.open-std.org/jtc1/sc22/wg14/) library implementing elliptic curves.
+This is a [C](http://www.open-std.org/jtc1/sc22/wg14/) ANSI library implementing elliptic curves.
 
 ## Basic usage
 
@@ -42,7 +42,7 @@ Documentation is not available yet.
 
 ## License information
 
-Go distributes under [BSD-style License](http://golang.org/LICENSE).
+GCC distributes under [GNU General Public License](http://www.gnu.org/licenses/gpl.html), CLang distributes under [NCSA License](http://opensource.org/licenses/NCSA).
 
 This project, including this README, distributes under [GNU General Public License v3](https://github.com/ncanceill/libelliptic/blob/master/LICENSE.md) from the Free Software Foundation.
 
