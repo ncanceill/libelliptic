@@ -4,7 +4,7 @@
 int mod(int n, int base) {
 	int m;
 	m = n % base;
-	if (m < 0) return -m;
+	if (m < 0) return base+m;
 	return m;
 }
 
@@ -25,7 +25,7 @@ int inverse(int base,int n) {
 	return expo(base,n,base-2);
 }
 
-int divide(int base,int x,int y) {
+int divide(int x,int y,int base) {
 	int i;
 	i = inverse(base,y);
 	if (i == -1) return -1;
