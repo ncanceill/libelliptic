@@ -47,12 +47,6 @@ You can check the _non-singularity_ of the curve like this:
 
 Documentation can be generated using [`rdoc`](http://rdoc.sourceforge.net).
 
-## Contribution
-
-General rule: any contributions are welcome.
-
-Do not hesitate to [drop an issue](https://github.com/ncanceill/libelliptic/issues/new) if you found a bug, if you either want to see a new feature or wish to suggest an improvement, or even if you simply have a question.
-
 ## License information
 
 Ruby distributes under [2-Clause BSD License](https://www.ruby-lang.org/en/about/license.txt).

@@ -49,12 +49,6 @@ false
 
 Documentation is not available yet
 
-## Contribution
-
-General rule: any contributions are welcome.
-
-Do not hesitate to [drop an issue](https://github.com/ncanceill/libelliptic/issues/new) if you found a bug, if you either want to see a new feature or wish to suggest an improvement, or even if you simply have a question.
-
 ## License information
 
 Python 3 distributes under the [Python License](http://docs.python.org/3/license.html).

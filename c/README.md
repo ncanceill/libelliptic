@@ -40,12 +40,6 @@ if (mod(4*a*a*a+27*b*b,base) == 0) {
 
 Documentation is not available yet.
 
-## Contribution
-
-General rule: any contributions are welcome.
-
-Do not hesitate to [drop an issue](https://github.com/ncanceill/libelliptic/issues/new) if you found a bug, if you either want to see a new feature or wish to suggest an improvement, or even if you simply have a question.
-
 ## License information
 
 Go distributes under [BSD-style License](http://golang.org/LICENSE).

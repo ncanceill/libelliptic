@@ -69,12 +69,6 @@ $ ocamlopt -o elliptic-sample elliptic.ml sample.ml
 
 Documentation is not available yet.
 
-## Contribution
-
-General rule: any contributions are welcome.
-
-Do not hesitate to [drop an issue](https://github.com/ncanceill/libelliptic/issues/new) if you found a bug, if you either want to see a new feature or wish to suggest an improvement, or even if you simply have a question.
-
 ## License information
 
 OCaml distributes under [Q Public License and GNU General Public License](http://caml.inria.fr/ocaml/license.en.html).

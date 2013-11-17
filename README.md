@@ -4,6 +4,7 @@ This is a collection of libraries implementing elliptic curves.
 
 Available languages:
 
+* [C](https://github.com/ncanceill/libelliptic/tree/master/c)
 * [Go](https://github.com/ncanceill/libelliptic/tree/master/go)
 * [OCaml](https://github.com/ncanceill/libelliptic/tree/master/ocaml)
 * [Python](https://github.com/ncanceill/libelliptic/tree/master/python)
