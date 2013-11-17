@@ -10,7 +10,7 @@ int main() {
 	b = 1;
 	printf("Prime base: %d\n",base);
 	printf("Elliptic curve: (%d,%d)\n",a,b);
-	
+
 	p = ElliPt(1,2,base);
 	printf("P: (%d,%d)\n",p->x,p->y);
 
