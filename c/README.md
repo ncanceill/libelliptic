@@ -32,6 +32,8 @@ int base = 7;
 int a = 2;
 int b = 1;
 if (mod(4*a*a*a+27*b*b,base) == 0) {
+	printf("singular!\n");
+} else {
 	printf("non-singular!\n");
 }
 ````
